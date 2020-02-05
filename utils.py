@@ -25,9 +25,9 @@ def make_drive_pulse(dt, amp=.3, sigma=75):
                                      name='freq_sweep_excitation_pulse')
     return drive_pulse
 
-def make_meas_pulse(dt, samples=1000, sigma=28, amp=.25):
+def make_meas_pulse(dt, samples=1000, sigma=7, amp=.25):
     meas_samples_ns = samples
-    meas_sigma_ns = sigma
+    meas_sigma_ns = sigma*int(10*dt)
     # The width of the gaussian part of the rise and fall
     meas_risefall_ns = 100
     # and the truncating parameter: how many samples to dedicate to the risefall
